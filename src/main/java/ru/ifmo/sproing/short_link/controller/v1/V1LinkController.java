@@ -32,13 +32,13 @@ public class V1LinkController {
         LinkEntity entity = linkService.findLong(link.getLongLink());
 
         if (entity != null) {
-            return "http://localhost:8080/" + entity.getShortLink();
+            return "http://localhost:8080/v1/s=" + entity.getShortLink();
         }
         System.out.println(link);
         link.setShortLink(genShortLink());
         linkService.createShortLink(link);
 
-        return "http://localhost:8080/" + link.getShortLink();
+        return "http://localhost:8080/v1/s=" + link.getShortLink();
     }
 
     @ResponseBody
